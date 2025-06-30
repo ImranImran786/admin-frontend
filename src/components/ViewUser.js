@@ -630,7 +630,7 @@ const ViewUser = () => {
       }
 
       try {
-        const { data } = await axios.get("http://localhost:5005/api/users", {
+        const { data } = await axios.get("https://e5f4-103-198-154-141.ngrok-free.app//api/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(data);
@@ -656,7 +656,7 @@ const ViewUser = () => {
         if (user.role === "driver" && user.status !== "Connected") {
           try {
             const res = await axios.get(
-              `http://localhost:5005/api/assignments/driver-assignments/${user._id}`,
+              `https://e5f4-103-198-154-141.ngrok-free.app//api/assignments/driver-assignments/${user._id}`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -673,7 +673,7 @@ const ViewUser = () => {
 
             if (shouldBeConnected) {
               await axios.put(
-                `http://localhost:5005/api/users/update-status/${user._id}`,
+                `https://e5f4-103-198-154-141.ngrok-free.app//api/users/update-status/${user._id}`,
                 { status: "Connected" },
                 {
                   headers: { Authorization: `Bearer ${token}` },
@@ -693,7 +693,7 @@ const ViewUser = () => {
   const fetchClientData = async (clientId) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5005/api/users/${clientId}`,
+        `https://e5f4-103-198-154-141.ngrok-free.app//api/users/${clientId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -735,7 +735,7 @@ const ViewUser = () => {
     try {
       const token = localStorage.getItem("userToken");
       await axios.post(
-        "http://localhost:5005/api/assignments/assign-driver",
+        "https://e5f4-103-198-154-141.ngrok-free.app//api/assignments/assign-driver",
         {
           clientId: selectedClientId,
           driverId: selectedDriverId,
