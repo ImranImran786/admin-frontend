@@ -605,6 +605,7 @@
 
 
 
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './ClientDetails.css';
@@ -629,7 +630,7 @@ const ViewUser = () => {
       }
 
       try {
-        const { data } = await axios.get("https://mongo-db-backend-production.up.railway.app/api/users", {
+        const { data } = await axios.get("https://4654-116-0-51-50.ngrok-free.app/api/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(data);
@@ -655,7 +656,7 @@ const ViewUser = () => {
         if (user.role === "driver" && user.status !== "Connected") {
           try {
             const res = await axios.get(
-              `https://mongo-db-backend-production.up.railway.app/api/assignments/driver-assignments/${user._id}`,
+              `https://4654-116-0-51-50.ngrok-free.app/api/assignments/driver-assignments/${user._id}`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -672,7 +673,7 @@ const ViewUser = () => {
 
             if (shouldBeConnected) {
               await axios.put(
-                `https://mongo-db-backend-production.up.railway.app/api/users/update-status/${user._id}`,
+                `https://4654-116-0-51-50.ngrok-free.app/api/users/update-status/${user._id}`,
                 { status: "Connected" },
                 {
                   headers: { Authorization: `Bearer ${token}` },
@@ -692,7 +693,7 @@ const ViewUser = () => {
   const fetchClientData = async (clientId) => {
     try {
       const { data } = await axios.get(
-        `https://mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
+        `https://4654-116-0-51-50.ngrok-free.app/api/users/${clientId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -734,7 +735,7 @@ const ViewUser = () => {
     try {
       const token = localStorage.getItem("userToken");
       await axios.post(
-        "https://mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
+        "https://4654-116-0-51-50.ngrok-free.app/api/assignments/assign-driver",
         {
           clientId: selectedClientId,
           driverId: selectedDriverId,
