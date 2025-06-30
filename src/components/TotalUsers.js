@@ -18,7 +18,7 @@
 //     const fetchUsers = async () => {
 //       try {
 //         const token = localStorage.getItem("userToken");
-//         const { data } = await axios.get("http://localhost:5005/api/users", {
+//         const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 
@@ -121,7 +121,7 @@
 //   const fetchUsers = async () => {
 //     try {
 //       const token = localStorage.getItem("userToken");
-//       const { data } = await axios.get("http://localhost:5005/api/users", {
+//       const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
 //         headers: { Authorization: `Bearer ${token}` },
 //       });
 
@@ -269,7 +269,7 @@ const TotalUsers = () => {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("userToken");
-        const { data } = await axios.get("http://localhost:5005/api/users", {
+        const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

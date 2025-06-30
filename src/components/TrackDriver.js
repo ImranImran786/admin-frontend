@@ -39,9 +39,9 @@ const TrackDriver = () => {
 
     // socket.current = io("http://localhost:5000/");
     // adminSocket.current = io("ws://localhost:5005/admin");
-    // const SERVER_URL = "ws://http://localhost:5005/"; // Change this to your Railway deployment URL in production
+    // const SERVER_URL = "ws://mongo-db-backend-production.up.railway.app/"; // Change this to your Railway deployment URL in production
 socket.current = io("http://localhost:5000/");
-adminSocket.current = io("http://localhost:5005/admin");
+adminSocket.current = io("mongo-db-backend-production.up.railway.app/admin");
 
     socket.current.on("connect", () => {
       console.log("Connected to WebSocket server");

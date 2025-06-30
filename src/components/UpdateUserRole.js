@@ -13,7 +13,7 @@ const UpdateUserRole = () => {
                     setError("Authorization token missing");
                     return;
                 }
-                const { data } = await axios.get("http://localhost:5005/api/users", {
+                const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setUsers(data);
@@ -29,7 +29,7 @@ const UpdateUserRole = () => {
         try {
             const token = localStorage.getItem("userToken");
             await axios.put(
-                `http://localhost:5005/api/users/${userId}/role`,
+                `mongo-db-backend-production.up.railway.app/api/users/${userId}/role`,
                 { role: newRole },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

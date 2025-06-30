@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5005/");
+const socket = io("mongo-db-backend-production.up.railway.app/");
 
 const Admin = () => {
   const [requests, setRequests] = useState([]);
@@ -45,13 +45,13 @@ const Admin = () => {
       formData.append("image", selectedFile);
 
       try {
-        const response = await axios.post("http://localhost:5005/api/upload", formData, {
+        const response = await axios.post("mongo-db-backend-production.up.railway.app/api/upload", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
         if (response.data.imageUrl) {
           imageUrl = response.data.imageUrl;
-          await axios.post("http://localhost:5005/api/save-image", { imageUrl });
+          await axios.post("mongo-db-backend-production.up.railway.app/api/save-image", { imageUrl });
         } else {
           alert("Failed to upload image.");
           return;
@@ -78,7 +78,7 @@ const Admin = () => {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get("http://localhost:5005/api/images");
+      const response = await axios.get("mongo-db-backend-production.up.railway.app/api/images");
       setImages(response.data.images);
     } catch (error) {
       console.error("Failed to fetch images:", error);

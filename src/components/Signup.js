@@ -18,7 +18,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("http://localhost:5005/api/auth/register", {
+      const { data } = await axios.post("mongo-db-backend-production.up.railway.app/api/auth/register", {
         name,
         fatherName,
         email,

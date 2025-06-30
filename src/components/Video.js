@@ -9,7 +9,7 @@ const Video = ({ adminEmail }) => {
   const [driverId, setDriverId] = useState("");
 
   useEffect(() => {
-    socket.current = io("http://localhost:5005/");
+    socket.current = io("mongo-db-backend-production.up.railway.app/");
 
     socket.current.emit("register_admin", adminEmail);
     console.log(`📌 Admin registered: ${adminEmail}`);
@@ -95,7 +95,7 @@ export default Video;
 //   const [driverId, setDriverId] = useState("");
 
 //   useEffect(() => {
-//     socket.current = io("http://localhost:5005/", { transports: ["websocket", "polling"] });
+//     socket.current = io("mongo-db-backend-production.up.railway.app/", { transports: ["websocket", "polling"] });
 //     socket.current.emit("register_client", userEmail);
 //     console.log(`📌 Client registered: ${userEmail}`);
 

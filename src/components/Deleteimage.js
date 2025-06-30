@@ -6,7 +6,7 @@ const DeleteImage = () => {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5005/api/images")
+    fetch("mongo-db-backend-production.up.railway.app/api/images")
       .then((response) => response.json())
       .then((data) => {
         if (data.images && Array.isArray(data.images)) {
@@ -31,7 +31,7 @@ const DeleteImage = () => {
     if (!confirmDelete) return;
   
     try {
-      const response = await fetch(`http://localhost:5005/api/images/${selectedImage}`, {
+      const response = await fetch(`mongo-db-backend-production.up.railway.app/api/images/${selectedImage}`, {
         method: "DELETE",
       });
   
