@@ -14,7 +14,7 @@ const DeleteUser = () => {
                     setError("Authorization token missing");
                     return;
                 }
-                const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
+                const { data } = await axios.get("https://mongo-db-backend-production.up.railway.app/api/users", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setUsers(data);
@@ -41,7 +41,7 @@ const DeleteUser = () => {
     
             console.log("Attempting to delete user with ID:", userId);
     
-            const response = await axios.delete(`mongo-db-backend-production.up.railway.app/api/users/${userId}`, {
+            const response = await axios.delete(`https://mongo-db-backend-production.up.railway.app/api/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
     

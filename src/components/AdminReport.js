@@ -10,7 +10,7 @@
 //   const fetchData = async () => {
 //     try {
 //       setLoading(true);
-//       const res = await axios.get('mongo-db-backend-production.up.railway.app/api/reports/driver-slots');
+//       const res = await axios.get('https://mongo-db-backend-production.up.railway.app/api/reports/driver-slots');
 //       setData(res.data || []);
 //     } catch (error) {
 //       console.error('Error fetching reports:', error);
@@ -141,7 +141,7 @@ const AdminReport = () => {
   const fetchData = async () => {
     try {
       setLoading(true);
-      const res = await axios.get('mongo-db-backend-production.up.railway.app/api/reports/driver-slots');
+      const res = await axios.get('https://mongo-db-backend-production.up.railway.app/api/reports/driver-slots');
       setData(res.data || []);
     } catch (error) {
       console.error('Error fetching reports:', error);
@@ -156,7 +156,7 @@ const AdminReport = () => {
 
   const handleUpdateSlot = async (slotId) => {
     try {
-      await axios.put(`mongo-db-backend-production.up.railway.app/api/slots/update/${slotId}`, updatedSlot);
+      await axios.put(`https://mongo-db-backend-production.up.railway.app/api/slots/update/${slotId}`, updatedSlot);
       setEditingSlot(null);
       fetchData();
     } catch (err) {
@@ -167,7 +167,7 @@ const AdminReport = () => {
   const handleDeleteSlot = async (slotId) => {
     try {
       if (!window.confirm("Are you sure you want to delete this slot?")) return;
-      await axios.delete(`mongo-db-backend-production.up.railway.app/api/slots/delete/${slotId}`);
+      await axios.delete(`https://mongo-db-backend-production.up.railway.app/api/slots/delete/${slotId}`);
       fetchData();
     } catch (err) {
       console.error('Error deleting slot:', err);

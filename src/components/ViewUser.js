@@ -24,7 +24,7 @@
 //       }
 
 //       try {
-//         const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
+//         const { data } = await axios.get("https://mongo-db-backend-production.up.railway.app/api/users", {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 //         setUsers(data);
@@ -41,7 +41,7 @@
 //   const fetchClientData = async (clientId) => {
 //     try {
 //       const { data } = await axios.get(
-//         `mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
+//         `https://mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
 //         {
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -108,7 +108,7 @@
 //   try {
 //     const token = localStorage.getItem("userToken");
 //     await axios.post(
-//       "mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
+//       "https://mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
 //       {
 //         clientId: selectedClientId,
 //         driverId: selectedDriverId,
@@ -332,7 +332,7 @@
 //       }
 
 //       try {
-//         const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
+//         const { data } = await axios.get("https://mongo-db-backend-production.up.railway.app/api/users", {
 //           headers: { Authorization: `Bearer ${token}` },
 //         });
 //         setUsers(data);
@@ -349,7 +349,7 @@
 //   const fetchClientData = async (clientId) => {
 //     try {
 //       const { data } = await axios.get(
-//         `mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
+//         `https://mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
 //         {
 //           headers: {
 //             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -396,7 +396,7 @@
 //     try {
 //       const token = localStorage.getItem("userToken");
 //       await axios.post(
-//         "mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
+//         "https://mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
 //         {
 //           clientId: selectedClientId,
 //           driverId: selectedDriverId,
@@ -629,7 +629,7 @@ const ViewUser = () => {
       }
 
       try {
-        const { data } = await axios.get("mongo-db-backend-production.up.railway.app/api/users", {
+        const { data } = await axios.get("https://mongo-db-backend-production.up.railway.app/api/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(data);
@@ -655,7 +655,7 @@ const ViewUser = () => {
         if (user.role === "driver" && user.status !== "Connected") {
           try {
             const res = await axios.get(
-              `mongo-db-backend-production.up.railway.app/api/assignments/driver-assignments/${user._id}`,
+              `https://mongo-db-backend-production.up.railway.app/api/assignments/driver-assignments/${user._id}`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -672,7 +672,7 @@ const ViewUser = () => {
 
             if (shouldBeConnected) {
               await axios.put(
-                `mongo-db-backend-production.up.railway.app/api/users/update-status/${user._id}`,
+                `https://mongo-db-backend-production.up.railway.app/api/users/update-status/${user._id}`,
                 { status: "Connected" },
                 {
                   headers: { Authorization: `Bearer ${token}` },
@@ -692,7 +692,7 @@ const ViewUser = () => {
   const fetchClientData = async (clientId) => {
     try {
       const { data } = await axios.get(
-        `mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
+        `https://mongo-db-backend-production.up.railway.app/api/users/${clientId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -734,7 +734,7 @@ const ViewUser = () => {
     try {
       const token = localStorage.getItem("userToken");
       await axios.post(
-        "mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
+        "https://mongo-db-backend-production.up.railway.app/api/assignments/assign-driver",
         {
           clientId: selectedClientId,
           driverId: selectedDriverId,
