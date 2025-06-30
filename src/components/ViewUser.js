@@ -630,7 +630,7 @@ const ViewUser = () => {
       }
 
       try {
-        const { data } = await axios.get("https://database-production-3a68.up.railway.app//api/users", {
+        const { data } = await axios.get("http://localhost:5005/api/users", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUsers(data);
@@ -656,7 +656,7 @@ const ViewUser = () => {
         if (user.role === "driver" && user.status !== "Connected") {
           try {
             const res = await axios.get(
-              `https://database-production-3a68.up.railway.app//api/assignments/driver-assignments/${user._id}`,
+              `http://localhost:5005/api/assignments/driver-assignments/${user._id}`,
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -673,7 +673,7 @@ const ViewUser = () => {
 
             if (shouldBeConnected) {
               await axios.put(
-                `https://database-production-3a68.up.railway.app//api/users/update-status/${user._id}`,
+                `http://localhost:5005/api/users/update-status/${user._id}`,
                 { status: "Connected" },
                 {
                   headers: { Authorization: `Bearer ${token}` },
@@ -693,7 +693,7 @@ const ViewUser = () => {
   const fetchClientData = async (clientId) => {
     try {
       const { data } = await axios.get(
-        `https://database-production-3a68.up.railway.app//api/users/${clientId}`,
+        `http://localhost:5005/api/users/${clientId}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("userToken")}`,
@@ -735,7 +735,7 @@ const ViewUser = () => {
     try {
       const token = localStorage.getItem("userToken");
       await axios.post(
-        "https://database-production-3a68.up.railway.app//api/assignments/assign-driver",
+        "http://localhost:5005/api/assignments/assign-driver",
         {
           clientId: selectedClientId,
           driverId: selectedDriverId,
