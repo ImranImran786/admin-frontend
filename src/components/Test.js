@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from "react";
 // import { io } from "socket.io-client";
 
-// const adminSocket = io("https://mongo-db-backend-production.up.railway.app/admin");
+// const adminSocket = io("https://database-production-3a68.up.railway.app/admin");
 
 // const Test = () => {
 //     const [requests, setRequests] = useState([]);
@@ -55,8 +55,8 @@ import React, { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import axios from "axios";
 
-const socket = io("https://mongo-db-backend-production.up.railway.app/");
-const adminSocket = io("https://mongo-db-backend-production.up.railway.app/");
+const socket = io("https://database-production-3a68.up.railway.app/");
+const adminSocket = io("https://database-production-3a68.up.railway.app/");
 
 const Test = () => {
   const [requests, setRequests] = useState([]);
@@ -106,13 +106,13 @@ const Test = () => {
       formData.append("image", selectedFile);
 
       try {
-        const response = await axios.post("https://mongo-db-backend-production.up.railway.app/api/upload", formData, {
+        const response = await axios.post("https://database-production-3a68.up.railway.app/api/upload", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
         if (response.data.imageUrl) {
           imageUrl = response.data.imageUrl;
-          await axios.post("https://mongo-db-backend-production.up.railway.app/api/save-image", { imageUrl });
+          await axios.post("https://database-production-3a68.up.railway.app/api/save-image", { imageUrl });
         } else {
           alert("Failed to upload image.");
           return;
@@ -148,7 +148,7 @@ const Test = () => {
 
   const fetchImages = async () => {
     try {
-      const response = await axios.get("https://mongo-db-backend-production.up.railway.app/api/images");
+      const response = await axios.get("https://database-production-3a68.up.railway.app/api/images");
       setImages(response.data.images);
     } catch (error) {
       console.error("Failed to fetch images:", error);
@@ -219,7 +219,7 @@ export default Test;
 // import { io } from "socket.io-client";
 // import axios from "axios";
 
-// const socket = io("https://mongo-db-backend-production.up.railway.app/", {
+// const socket = io("https://database-production-3a68.up.railway.app/", {
 //   reconnectionAttempts: 5, // Retry connection 5 times if it fails
 //   reconnectionDelay: 2000, // Wait 2 seconds before retrying
 // });
@@ -272,7 +272,7 @@ export default Test;
 //       formData.append("image", selectedFile);
 
 //       try {
-//         const uploadResponse = await axios.post("https://mongo-db-backend-production.up.railway.app//api/upload", formData, {
+//         const uploadResponse = await axios.post("https://database-production-3a68.up.railway.app//api/upload", formData, {
 //           headers: { "Content-Type": "multipart/form-data" },
 //         });
 
@@ -280,7 +280,7 @@ export default Test;
 //           imageUrl = uploadResponse.data.imageUrl;
 //           console.log("📷 Image uploaded:", imageUrl);
 
-//           await axios.post("https://mongo-db-backend-production.up.railway.app/api/save-image", { imageUrl });
+//           await axios.post("https://database-production-3a68.up.railway.app/api/save-image", { imageUrl });
 //         } else {
 //           alert("Failed to upload image.");
 //           return;
@@ -308,7 +308,7 @@ export default Test;
 
 //   const fetchImages = async () => {
 //     try {
-//       const response = await axios.get("https://mongo-db-backend-production.up.railway.app/api/images");
+//       const response = await axios.get("https://database-production-3a68.up.railway.app/api/images");
 //       setImages(response.data.images);
 //     } catch (error) {
 //       console.error("❌ Failed to fetch images:", error);
