@@ -647,7 +647,10 @@ const ViewUser = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       const now = new Date();
-      const currentTime = now.toISOString().slice(0, 16);
+const lahoreOffset = 5 * 60; // UTC+5 in minutes
+const localLahoreTime = new Date(now.getTime() + lahoreOffset * 60000);
+const currentTime = localLahoreTime.toISOString().slice(0, 16);
+
 
       const token = localStorage.getItem("userToken");
       if (!token || users.length === 0) return;
